@@ -9,17 +9,16 @@ data "aws_vpc" "existing_vpc" {
  
 # --- Existing Subnets (must be in different AZs) ---
 data "aws_subnet" "subnet_1" {
-  id = "subnet-0123456789abcdef0"  # e.g. us-east-1a
+  id = "subnet-027466f48d858db02"  # e.g. us-east-1a
 }
  
 data "aws_subnet" "subnet_2" {
-  id = "subnet-0fedcba9876543210"  # e.g. us-east-1b
+  id = "subnet-06d0fa94b04ab3f4e"  # e.g. us-east-1b
 }
  
-# Optional third subnet (for even better HA)
-# data "aws_subnet" "subnet_3" {
-#   id = "subnet-0abcde123456789ff"  # e.g. us-east-1c
-# }
+ data "aws_subnet" "subnet_3" {
+   id = "subnet-08ff27274d591fb1f"  # e.g. us-east-1c
+ }
  
 # --- DB Subnet Group (at least 2 subnets required) ---
 resource "aws_db_subnet_group" "rds_subnet_group" {
@@ -27,7 +26,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
   subnet_ids = [
     data.aws_subnet.subnet_1.id,
     data.aws_subnet.subnet_2.id
-    # ,data.aws_subnet.subnet_3.id
+     ,data.aws_subnet.subnet_3.id
   ]
  
   tags = {

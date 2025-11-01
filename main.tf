@@ -4,7 +4,7 @@ provider "aws" {
  
 # --- Existing VPC ---
 data "aws_vpc" "existing_vpc" {
-  id = "vpc-0abcd1234ef567890"  # replace with your actual VPC ID
+  id = "vpc-06ce2d44d302c77e5"  # replace with your actual VPC ID
 }
  
 # --- Existing Subnets (must be in different AZs) ---

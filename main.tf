@@ -37,7 +37,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 # --- RDS Instance ---
 resource "aws_db_instance" "my_rds" {
   allocated_storage    = 20
-  db_name              = "RDS-Assignment-terraform"
+  db_name              = "RDSAssignmentterraform"
   engine               = "mysql"
   engine_version       = "8.0"
   instance_class       = "db.t3.micro"
